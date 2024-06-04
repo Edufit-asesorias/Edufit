@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edufit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo.PNG.jpg') }}" alt="Logo Empresarial" class="logo-circular">
+        <h1>Edufit</h1>
+        <h2 class="subtitle"><i>Cero plagio</i></h2>
+        <div class="nav-wrapper">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ingresar_dato') }}">Ingresar Dato</a></li>
+                    <li><a href="{{ url_for('ver_datos') }}">Ver Datos</a></li>
+                    <li><a href="{{ url_for('modificar_dato') }}">Modificar Dato</a></li>
+                    <li><a href="{{ url_for('borrar_dato') }}">Borrar Dato</a></li>
+                </ul>
+            </nav>
+            <div>
+                {% if not session.logged_in %}
+                    <form action="{{ url_for('login') }}" method="POST" class="login-form">
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>
+                        <button type="submit">Ingresar</button>
+                    </form>
+                {% else %}
+                    <a href="{{ url_for('logout') }}" class="logout-button">Salir</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

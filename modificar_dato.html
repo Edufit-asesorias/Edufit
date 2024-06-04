@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Modificar Dato</h2>
+    <form action="{{ url_for('modificar_dato') }}" method="POST">
+        <label for="id_modificar">ID a Modificar:</label>
+        <input type="number" id="id_modificar" name="id_modificar" required>
+        <label for="columna_modificar">Columna a Modificar:</label>
+        <select id="columna_modificar" name="columna_modificar">
+            {% for columna in columnas %}
+                <option value="{{ columna }}">{{ columna }}</option>
+            {% endfor %}
+        </select>
+        <label for="nuevo_valor">Nuevo Valor:</label>
+        <input type="text" id="nuevo_valor" name="nuevo_valor" required>
+        <button type="submit">Modificar</button>
+    </form>
+{% endblock %}

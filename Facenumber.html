@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Facenumber Page{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <h1>Facenumber Page</h1>
+    <div class="Facenumber-content">
+        <p>La función Facenumber permite determinar si un número dado es primo, si puede formar un número perfecto de Mersenne y muestra los números primos anteriores.</p>
+        <form method="post">
+            <label for="numero">Ingrese un número:</label>
+            <input type="number" id="numero" name="numero" required>
+            <button type="submit">Verificar</button>
+        </form>
+        
+        {% if resultado %}
+        <div class="resultado">
+            <p>
+                {% if resultado.primo %}
+                    {{ resultado.numero }} es primo.
+                    {% if resultado.perfecto %}
+                        Puede formar el número perfecto de Mersenne: {{ resultado.perfecto }}.
+                    {% else %}
+                        No puede formar un número perfecto de Mersenne.
+                    {% endif %}
+                {% else %}
+                    {{ resultado.numero }} no es primo.
+                {% endif %}
+            </p>
+            <p>Los números primos antes de {{ resultado.numero }} son: {{ resultado.lista_primos | join(', ') }}</p>
+            <p>Hay {{ resultado.contar_primos }} números primos antes de {{ resultado.numero }}.</p>
+            <p>El tipo de número es: {{ resultado.tipo }}</p>
+        </div>
+        <a href="{{ url_for('main') }}">Volver</a>
+
+        {% endif %}
+    </div>
+    <a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
+</div>
+<footer class="footer">
+    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
+</footer>
+{% endblock %}
+

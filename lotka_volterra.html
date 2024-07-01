@@ -1,0 +1,58 @@
+<!-- lotka_volterra.html -->
+{% extends "base.html" %}
+
+{% block title %}Modelo de Lotka-Volterra{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Modelo de Lotka-Volterra</h1>
+    <form id="lotkaForm">
+        <div class="form-group">
+            <label for="a">Tasa de crecimiento de la presa en ausencia de depredadores:</label>
+            <input type="number" step="any" id="a" name="a" required>
+        </div>
+        <div class="form-group">
+            <label for="b">Tasa a la que las presas son cazadas por los depredadores:</label>
+            <input type="number" step="any" id="b" name="b" required>
+        </div>
+        <div class="form-group">
+            <label for="c">Tasa de mortalidad de los depredadores en ausencia de presas:</label>
+            <input type="number" step="any" id="c" name="c" required>
+        </div>
+        <div class="form-group">
+            <label for="d">Tasa a la que los depredadores incrementan en presencia de presas:</label>
+            <input type="number" step="any" id="d" name="d" required>
+        </div>
+        <div class="form-group">
+            <label for="t0">Tiempo inicial:</label>
+            <input type="number" step="any" id="t0" name="t0" required>
+        </div>
+        <div class="form-group">
+            <label for="x0">Población inicial de presas:</label>
+            <input type="number" step="any" id="x0" name="x0" required>
+        </div>
+        <div class="form-group">
+            <label for="y0">Población inicial de depredadores:</label>
+            <input type="number" step="any" id="y0" name="y0" required>
+        </div>
+        <div class="form-group">
+            <label for="h">Paso de tiempo en minutos:</label>
+            <input type="number" step="any" id="h" name="h" required>
+        </div>
+        <div class="form-group">
+            <label for="muestras">Número de muestras:</label>
+            <input type="number" step="any" id="muestras" name="muestras" required>
+        </div>
+        <button type="submit" class="btn">Generar Modelo</button>
+    </form>
+    <a href="{{ url_for('main') }}">Volver</a>
+
+    <div id="result"></div>
+</div>
+
+<a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
+<footer class="footer">
+    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
+</footer>
+{% endblock %}

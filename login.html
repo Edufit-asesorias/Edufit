@@ -1,25 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edufit - Login</title>
+    <title>Edufit</title>
+    <!-- Cargar el CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        <img src="{{ url_for('static', filename='logo.PNG.jpg') }}" alt="Logo Empresarial" class="logo-circular">
-        <h1>Edufit</h1>
-        <h2 class="subtitle"><i>Cero plagio</i></h2>
+    <!-- Barra superior -->
+    <div class="top-bar"></div> <!-- Línea superior azul -->
+
+    <!-- Encabezado -->
+    <header class="header-content">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo de Edufit" class="header-logo">
+            <div class="header-title-group">
+                <h1 class="header-title">Edufit</h1>
+                <div class="header-subtitle">Cero Plagio, Trabajo eficaz</div>
+            </div>
+        </div>
     </header>
-    <main>
-        <form action="{{ url_for('login') }}" method="POST" class="login-form">
+
+    <!-- Bloque de contenido -->
+    {% block content %}
+    <div class="form-container">
+        <h1>Iniciar Sesión</h1>
+        <form method="post" action="{{ url_for('login') }}">
             <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required><br>
+            
             <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Ingresar</button>
+            <input type="password" id="password" name="password" required><br>
+            
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </form>
-    </main>
+
+        <a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="alert-list">
+                    {% for category, message in messages %}
+                        <li class="alert alert-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    {% endblock %} <!-- Aquí cerramos el bloque de contenido -->
+
+    <footer class="footer">
+        <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
+    </footer>
 </body>
 </html>

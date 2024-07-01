@@ -1,0 +1,45 @@
+<!-- aspiradora_qr_form.html -->
+{% extends "base.html" %}
+{% block title %}Generador de Código QR{% endblock %}
+{% block content %}
+    <h1>Generar Imagen Aleatoria</h1>
+    
+    <form method="POST" action="/aspiradora_qr">
+        <label for="filas">Filas:</label>
+        <input type="number" name="filas" id="filas" required><br><br>
+        
+        <label for="columnas">Columnas:</label>
+        <input type="number" name="columnas" id="columnas" required><br><br>
+        
+        <button type="submit">Generar Imagen</button>
+    </form>
+    <a href="{{ url_for('main') }}">Volver</a>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    {% if qr_img_data %}
+        <h2>Imagen Generada:</h2>
+        <img src="data:image/png;base64,{{ qr_img_data }}" alt="Imagen Generada">
+    {% endif %}
+    
+    {% if matriz %}
+        <h2>Matriz Generada:</h2>
+        <table>
+            {% for fila in matriz %}
+                <tr>
+                    {% for valor in fila %}
+                        <td>{{ valor }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    {% endif %}
+    <a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
+</div>
+<footer class="footer">
+    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
+</footer>
+{% endblock %}

@@ -1,6 +1,46 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edufit - Inicio</title>
+    <!-- Cargar el CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar"></div> <!-- Línea superior azul -->
 
-{% block content %}
-    <h2>Bienvenido a Edufit</h2>
-    <p>Selecciona una opción del menú.</p>
-{% endblock %}
+    <!-- Encabezado -->
+    <header class="header-content">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo de Edufit" class="header-logo">
+            <div class="header-title-group">
+                <h1 class="header-title">Edufit</h1>
+                <div class="header-subtitle">Cero Plagio, Trabajo eficaz</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bloque de contenido -->
+    {% block content %}
+    <div class="container">
+        <h1>Bienvenido a Edufit</h1>
+        <p>Esta es la página principal de nuestra aplicación de gestión de datos. </p>
+
+        <!-- Agrega aquí los enlaces o funcionalidades principales de la página -->
+        <div class="actions">
+            <a href="{{ url_for('ver_datos') }}" class="btn btn-primary">Ver Datos</a>
+            <a href="{{ url_for('ingresar_dato') }}" class="btn btn-primary">Agregar Datos</a>
+        </div>
+    </div>
+    <a href="{{ url_for('main') }}" class="floating-button">Cerrar sesion</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
+    {% endblock %}
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
+    </footer>
+</body>
+</html>

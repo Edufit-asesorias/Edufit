@@ -1,4 +1,3 @@
-<!-- lotka_volterra.html -->
 {% extends "base.html" %}
 
 {% block title %}Modelo de Lotka-Volterra{% endblock %}
@@ -6,7 +5,7 @@
 {% block content %}
 <div class="container">
     <h1>Modelo de Lotka-Volterra</h1>
-    <form id="lotkaForm">
+    <form id="lotkaForm" action="{{ url_for('lotka_volterra') }}" method="post">
         <div class="form-group">
             <label for="a">Tasa de crecimiento de la presa en ausencia de depredadores:</label>
             <input type="number" step="any" id="a" name="a" required>
@@ -25,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="t0">Tiempo inicial:</label>
-            <input type="number" step="any" id="t0" name="t0" required>
+            <input type="number" step="any" id="t0" name="t0" value="0" required>
         </div>
         <div class="form-group">
             <label for="x0">Población inicial de presas:</label>
@@ -37,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="h">Paso de tiempo en minutos:</label>
-            <input type="number" step="any" id="h" name="h" required>
+            <input type="number" step="any" id="h" name="h" value="1" required>
         </div>
         <div class="form-group">
             <label for="muestras">Número de muestras:</label>
@@ -45,14 +44,15 @@
         </div>
         <button type="submit" class="btn">Generar Modelo</button>
     </form>
-    <a href="{{ url_for('main') }}">Volver</a>
 
-    <div id="result"></div>
+    {% if plot_url %}
+        <h2>Gráfica Generada:</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de Lotka-Volterra">
+    {% endif %}
+    <a href="{{ url_for('main') }}" class="floating-button">Volver</a>
+
 </div>
 
-<a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
 
-<footer class="footer">
-    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
-</footer>
+
 {% endblock %}

@@ -1,0 +1,20 @@
+<!-- main.html -->
+{% extends "base.html" %}
+{% block title %}Aplicaciones interactivas{% endblock %}
+{% block content %}
+<!-- Menú desplegable en la parte superior -->
+
+<div class="dropdown-menu">
+    <button class="dropbtn" >Aplicaciones</button>
+    <div class="dropdown-content">
+        <a href="{{ url_for('Facenumber') }}">Facenumber</a>
+        <a href="{{ url_for('lotka_volterra') }}">Lotka-Volterra</a>
+        <a href="{{ url_for('aspiradora_qr_form') }}">Aspiradora QR</a>
+        <a href="{{ url_for('taylor') }}">Taylor</a>
+        <a href="{{url_for('graficas')}}">Graficar</a>
+    </div>
+</div>
+
+{% endblock %}
+
+

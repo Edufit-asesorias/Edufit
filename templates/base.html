@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edufit</title>
+    <!-- Cargar el CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar"></div> <!-- Línea superior azul -->
+
+
+    <!-- Contenedor principal para todo el contenido y el pie de página -->
+    <div class="content-wrapper">
+        <!-- Encabezado -->
+        <header class="header-content">
+            <div class="header-background">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" class="header-logo">
+                <h1 class="header-title">Edufit</h1>
+                <div class="header-left">                    
+                    <div class="header-title-group">
+                        
+                        <div class="header-subtitle">Cero Plagio, Trabajo eficaz</div>
+                    </div>
+                </div>
+
+            </div>
+            <a href="{{ url_for('login') }}" class="floating1-button">Iniciar Sesión</a> <!-- Botón -->
+
+        </header>
+        
+
+        <!-- Contenido Principal -->
+        <div class="container">
+            {% block content %}
+            <!-- Aquí irá el contenido de las vistas que extienden esta plantilla -->
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 - Siempre eficiencia y calidad </p>
+        <p>Contáctanos: edufit.edusoluciones@gmail.com</p>
+        <p>Teléfono: 3508443156</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -11,9 +11,8 @@
         <label for="columnas">Columnas:</label>
         <input type="number" name="columnas" id="columnas" required><br><br>
         
-        <button type="submit">Generar Imagen</button>
+        <button type="submit" class="btn">Generar Imagen</button>
     </form>
-    <a href="{{ url_for('main') }}">Volver</a>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
@@ -36,10 +35,8 @@
         </table>
 
     {% endif %}
-    <a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
 
 </div>
-<footer class="footer">
-    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
-</footer>
+<a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
+
 {% endblock %}

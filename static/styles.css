@@ -1,0 +1,214 @@
+/* Estilos generales */
+html, body {
+    background: linear-gradient(to bottom, #3393ff, #ecf4fc); /* Degradado de azul oscuro a azul claro */
+    color: #333;
+    height: 100%;
+    font-family: Comic, cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Box-sizing universal */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.main-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 70px 10px 0 10px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Línea superior azul */
+.top-bar {
+    background-color: #007bff;
+    height: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Estilos de tabla */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+/* Botones generales */
+.btn, .dropbtn, .floating-button {
+    font-size: 20px;
+    font-family: Comic, cursive;
+    z-index: 1000;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;  /* Elimina el subrayado */
+    font-weight: bold;
+    display: inline-block;
+}
+/* Quitar subrayado y mover el botón */
+.floating1-button {
+    top: 20px;              /* Mantiene la posición superior */
+    right: 90px;           /* Ajusta este valor para moverlo más a la izquierda */
+    z-index: 1000;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    font-family: Comic, cursive;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;  /* Elimina el subrayado */
+    display: inline-block;
+
+}
+
+
+/* Alineación de los botones flotantes */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Posición horizontal */
+    z-index: 1000;
+    padding: 15px 20px;
+}
+/* Botón flotante en la esquina superior derecha */
+.floating1-button {
+    position: fixed;
+    top: 20px;    /* Posición vertical superior */
+    right: 20px; /* Ajusta la posición horizontal para colocar el botón junto a dropbtn */
+    z-index: 1000;
+    padding: 15px 20px;
+}
+
+/* Botón dropbtn en la esquina superior derecha, junto al botón flotante */
+.dropbtn {
+    position: fixed;
+    top: 20px;    /* Misma posición vertical */
+    right: 180px;  /* Coloca el botón al lado derecho del otro botón */
+    z-index: 1000;
+    padding: 15px 20px;
+}
+
+
+/* Encabezado */
+.header-content {
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(rgba(126, 124, 124, 0.4), rgba(230, 230, 230, 0.4)), /* Capa de aclarado */
+    url('portada.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Contenedor del logo y título del encabezado */
+.header-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.header-title {
+    font-size: 36px;
+    font-style: italic;
+    color: #070c13;
+    margin: 0;
+}
+
+/* Subtítulo */
+.header-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #04090e;
+    margin-top: 5px;
+}
+
+/* Posición del logo y botones en el encabezado */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right .btn,
+.header-right .dropbtn {
+    margin: 0;
+}
+
+.header-right .dropbtn {
+    margin-right: -1px; /* Ajusta la distancia entre botones */
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    position: fixed;
+    top: 1.5cm; /* Ajusta la posición vertical del menú */
+    right: 5cm; /* Ajusta la posición horizontal del menú */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1002;
+    top: 20px; /* Modifica la posición vertical de las opciones */
+    right: 10px; /* Modifica la posición horizontal de las opciones */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-menu:hover .dropdown-content {
+    display: block;
+}
+
+/* Barra lateral izquierda */
+.left-bar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #007bff;
+    z-index: 1000;
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    margin-top: auto;
+    line-height: 0.8;
+}

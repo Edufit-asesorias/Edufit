@@ -1,0 +1,24 @@
+}{% extends "base.html" %}
+
+{% block title %}Graficar Función Interactiva{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Graficar Función Interactiva</h1>
+    <form action="{{ url_for('graficas') }}" method="post">
+        <label for="function">Función (en términos de x):</label>
+        <input type="text" id="function" name="function" required placeholder="Ejemplo: sin(x), x**2">
+        
+        <button type="submit">Generar Gráfica</button>
+    </form>
+
+    {% if graph_html %}
+        <div id="result">
+            {{ graph_html|safe }}
+        </div>
+    {% endif %}
+</div>
+
+<a href="{{ url_for('main') }}" class="floating-button">Volver</a>
+
+{% endblock %}

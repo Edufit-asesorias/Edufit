@@ -29,16 +29,15 @@
             <p>Los números primos antes de {{ resultado.numero }} son: {{ resultado.lista_primos | join(', ') }}</p>
             <p>Hay {{ resultado.contar_primos }} números primos antes de {{ resultado.numero }}.</p>
             <p>El tipo de número es: {{ resultado.tipo }}</p>
+            <p>Los divisores del numero son : {{resultado.divisor | join(', ')}} y el mcd es: {{resultado.maximo}}</p>
+            <P>El resultado de la función sigma: {{resultado.sigma}}</p>
+            <p>El resultado de las función tao :  {{resultado.producto}}</p>
         </div>
-        <a href="{{ url_for('main') }}">Volver</a>
-
         {% endif %}
     </div>
     <a href="{{ url_for('main') }}" class="floating-button">Volver</a> <!-- Asegúrate de que 'index' esté definido en tus rutas -->
 
 </div>
-<footer class="footer">
-    <p>&copy; 2024 - Aplicación de Gestión de Datos</p>
-</footer>
+
 {% endblock %}
 

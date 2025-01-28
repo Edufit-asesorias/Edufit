@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import io
 import base64
-import qrcode
 import math
 from functools import reduce
 from operator import mul

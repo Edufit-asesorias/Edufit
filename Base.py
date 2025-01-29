@@ -10,7 +10,7 @@ import math
 from functools import reduce
 from operator import mul
 import sympy as sp
-from sympy import symbols, sympify, series, init_printing
+from sympy import symbols, init_printing
 import re
 import plotly.graph_objs as go
 import plotly.io as pio
